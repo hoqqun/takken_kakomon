@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Question.create!(
+  statement: "これは◯◯である",
+  explanation: "違います。これは××です。",
+  question_number: 1,
+  question_branch_number: 1,
+  correctness: false
+)
