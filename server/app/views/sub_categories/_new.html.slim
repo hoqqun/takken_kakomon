@@ -1,0 +1,3 @@
+= form_with model: SubCategory.new, url: category_sub_categories_path(@category.id) , local: true do |form|
+    = form.text_field :name
+    = form.submit

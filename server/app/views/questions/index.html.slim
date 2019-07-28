@@ -1,0 +1,22 @@
+h1 質問一覧
+== render "new"
+table
+  thead
+    tr
+      th 問題ID
+      th 出題年
+      th カテゴリー
+      th サブカテゴリー
+      th 問題番号
+      th 問題枝番号
+      th 正誤
+      th 
+  tbody
+    - @questions.each do |question|
+      tr
+        td = question.id
+        td = question.year
+        td = question.sub_category.category.name
+        td = question.sub_category.name
+        td = question.question_number
+        td = question.question_branch_number

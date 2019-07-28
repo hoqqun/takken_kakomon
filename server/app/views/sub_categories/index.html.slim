@@ -1,0 +1,15 @@
+h1 サブカテゴリー一覧
+== render "new"
+table
+  thead
+    tr
+      th サブカテゴリーID
+      th サブカテゴリー名
+      th
+  tbody
+    - @category.sub_categories.each do |sub_category|
+      tr
+        = form_with model: sub_category, url: category_sub_category_path(sub_category.category_id, sub_category.id), local: true do |form|
+          td = form.object.id
+          td = form.text_field :name
+          td = form.submit

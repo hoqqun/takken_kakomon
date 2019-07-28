@@ -1,0 +1,10 @@
+= form_with model: Question.new, local: true do |form|
+    = form.text_area :statement
+    = form.text_area :explanation
+    = form.check_box :correctness
+    = form.number_field :question_number
+    = form.number_field :question_branch_number
+    = form.collection_select :sub_category_id, SubCategory.all, :id, :name
+    = form.select :year, [*2005..2020].map { |n| [n,n] }
+
+    = form.submit

@@ -6,8 +6,8 @@ import { Query } from 'react-apollo';
 import { ApolloProvider } from "react-apollo";
 import gql from 'graphql-tag';
 import ApolloClient from 'apollo-boost';
-import Questions from './questions.js';
 import { csrfToken } from 'rails-ujs';
+import Questions from './questions.js';
 
 const client = new ApolloClient({ uri: "http://localhost:3001/graphql" })
 const GET_QUESTION = gql`
@@ -28,9 +28,9 @@ function App() {
       <ApolloProvider client={client}>
         <div>
           <h2>My first Apollo app</h2>
-          <Questions />
         </div>
       </ApolloProvider>
+      <Questions/>
     </div>
   );
 }
