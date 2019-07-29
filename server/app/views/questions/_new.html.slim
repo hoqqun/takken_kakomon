@@ -1,10 +1,40 @@
-= form_with model: Question.new, local: true do |form|
-    = form.text_area :statement
-    = form.text_area :explanation
-    = form.check_box :correctness
-    = form.number_field :question_number
-    = form.number_field :question_branch_number
-    = form.collection_select :sub_category_id, SubCategory.all, :id, :name
-    = form.select :year, [*2005..2020].map { |n| [n,n] }
+.container
+  = form_with model: @question, local: true do |form|
+    .row
+      .col
+        .form-group
+          = form.label :statement, class: "label"
+          = form.text_area :statement, class: "form-control", rows: 5
+    .row
+      .col
+        .form-group
+          = form.label :explanation, class: "label"
+          = form.text_area :explanation, class: "form-control", rows: 5
+    .row
+      .col
+        .form-group
+          = form.label :correctness, class: "label"
+          = form.check_box :correctness, class: "form-control"
+      .col
+        .form-group
+          = form.label :question_number, class: "label"
+          = form.number_field :question_number, class: "form-control"
+      .col
+        .form-group
+          = form.label :question_branch_number, class: "label"
+          = form.number_field :question_branch_number, class: "form-control"
+      .col
+        .form-group
+          = form.label :sub_category_id, class: "label"
+          = form.collection_select :sub_category_id, SubCategory.all, :id, :name, {}, { class: "form-control input-sm" }
+      .col
+        .form-group
+          = form.label :year, class: "label"
+          = form.select :year, [*2005..2020].map { |n| [n,n] }, {}, { class: "form-control" }
 
-    = form.submit
+    = form.submit "登録", class: "btn btn-primary"
+
+  - if @question.errors.any?
+    .row
+      .col
+        = @question.errors.full_messages

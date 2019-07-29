@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      question: 問題
+    attributes:
+      question:
+        id: ID
+        statement: 問題文
+        explanation: 解説文
+        correctness: 正誤
+        year: 出題年
+        question_number: 問題番号
+        question_branch_number: 問題枝番
+        sub_category_id: サブカテゴリー
